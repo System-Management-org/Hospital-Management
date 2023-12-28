@@ -12,6 +12,7 @@ function Welcomevid(){
             <div className='absolute w-3/4 h-full top-1/3 left-56 bottom-1/4 content-center translate-2/4 flex-col justify-center items-center text-center'>
                 <h2 className="wlc">Welcome</h2>
                 <h1 className="title">Seamless Hospital Management</h1>
+                <button>Log In</button>
             </div>
             </div>
         </div>
