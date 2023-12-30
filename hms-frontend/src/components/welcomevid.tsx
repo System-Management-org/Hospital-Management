@@ -1,5 +1,6 @@
 // import { FullScreen, useFullScreenHandle} from "react-full-screen"
 import welcomevid from '../assets/welcomevid.mp4'
+import { Link } from 'react-router-dom'
 
 
 
@@ -12,6 +13,7 @@ function Welcomevid(){
             <div className='absolute w-3/4 h-full top-1/3 left-56 bottom-1/4 content-center translate-2/4 flex-col justify-center items-center text-center'>
                 <h2 className="wlc">Welcome</h2>
                 <h1 className="title">Seamless Hospital Management</h1>
+                <Link to="/login"><button>Log In</button></Link>
             </div>
             </div>
         </div>
