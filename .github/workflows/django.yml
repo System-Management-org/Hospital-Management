@@ -23,11 +23,7 @@ jobs:
         python-version: ${{ matrix.python-version }}
     - name: Activating environment
       run: |
-        cd myenv
-        cd Scripts
-        activate
-        cd ..
-        cd ..
+        source myenv/Scripts/activate
     - name: Install Dependencies
       run: |
         cd HMS
