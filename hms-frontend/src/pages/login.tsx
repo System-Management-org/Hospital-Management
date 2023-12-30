@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react"
+import { routing } from "../functions/routing";
 
 function Login(){
     const[username, setusername] = useState('');
@@ -17,7 +18,7 @@ function Login(){
         localStorage.setItem('refresh_token', data.refresh);
 
         axios.defaults.headers.common['Authorization'] = `Bearer ${data['access']}`;
-        window.location.href = '/doctor'
+        routing(username);
         
     }
 
