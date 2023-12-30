@@ -4,6 +4,7 @@
 import './App.css'
 import Doctor from './pages/doctor'
 import Login from './pages/login'
+import Nurse from './pages/nurse'
 import Welcomepage from './pages/welcome'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
@@ -16,6 +17,7 @@ function App() {
       <Route path='/' element={<Welcomepage/>}/>
       <Route path='login' element={<Login/>}/>
       <Route path='doctor' element={<Doctor/>}/>
+      <Route path='nurse' element={<Nurse/>}/>
     </Routes>
     </BrowserRouter>
 
