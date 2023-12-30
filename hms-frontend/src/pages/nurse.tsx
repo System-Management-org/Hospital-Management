@@ -1,8 +1,8 @@
-function Doctor(){
+function Nurse(){
     return(
         <>
-            <h1>Doctor</h1>
+            <h1>Nurse</h1>
         </>
     )
 }
-export default Doctor
+export default Nurse
