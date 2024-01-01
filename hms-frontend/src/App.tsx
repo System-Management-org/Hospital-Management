@@ -2,6 +2,7 @@
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 import './App.css'
+import Admin from './pages/admin'
 import Doctor from './pages/doctor'
 import Login from './pages/login'
 import Nurse from './pages/nurse'
@@ -18,6 +19,7 @@ function App() {
       <Route path='login' element={<Login/>}/>
       <Route path='doctor' element={<Doctor/>}/>
       <Route path='nurse' element={<Nurse/>}/>
+      <Route path='admin' element={<Admin/>}/>
     </Routes>
     </BrowserRouter>
 
