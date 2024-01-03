@@ -22,7 +22,7 @@ function App() {
       <Route path='admin' element={<Admin/>}/>
       <Route path='cashier' element={<Admin/>}/>
       <Route path='pharm' element={<Admin/>}/>
-      <Route path='admin' element={<Admin/>}/>
+      <Route path='lab' element={<Admin/>}/>
     </Routes>
     </BrowserRouter>
 
