@@ -21,8 +21,8 @@ function App() {
       <Route path='nurse' element={<Nurse/>}/>
       <Route path='admin' element={<Admin/>}/>
       <Route path='cashier' element={<Admin/>}/>
-      {/* <Route path='admin' element={<Admin/>}/>
-      <Route path='admin' element={<Admin/>}/> */}
+      <Route path='pharm' element={<Admin/>}/>
+      <Route path='admin' element={<Admin/>}/>
     </Routes>
     </BrowserRouter>
 
