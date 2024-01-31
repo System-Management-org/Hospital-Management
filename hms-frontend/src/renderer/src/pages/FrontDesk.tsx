@@ -1,5 +1,11 @@
+import SideMenu from "../components/sidemenu";
+
 function Frontdesk(){
-    return 0
+    return(
+    <>
+        <SideMenu/> 
+    </>
+    )
 }
 
 export default Frontdesk;

@@ -1,12 +1,12 @@
 from django.db import models
 
-gender_options = (('Male', 'male'), ('Female', 'female'), ('Other', 'other')),
+
 
 # Create your models here.
 class Doctor(models.Model):
     staff_id = models.CharField(max_length=200)
     first_name = models.CharField(max_length=200)
-    last_name = models.models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
     birthdate = models.DateField()
     email = models.EmailField(max_length=200)
     phone = models.CharField(max_length=200)
@@ -19,7 +19,7 @@ class Doctor(models.Model):
 class Nurse(models.Model):
     staff_id = models.CharField(max_length=200)
     first_name = models.CharField(max_length=200)
-    last_name = models.models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
     birthdate = models.DateField()
     email = models.EmailField(max_length=200)
     phone = models.CharField(max_length=200)
@@ -32,7 +32,7 @@ class Nurse(models.Model):
 class Pharmacist(models.Model):
     staff_id = models.CharField(max_length=200)
     first_name = models.CharField(max_length=200)
-    last_name = models.models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
     birthdate = models.DateField()
     email = models.EmailField(max_length=200)
     phone = models.CharField(max_length=200)
@@ -45,7 +45,7 @@ class Pharmacist(models.Model):
 class Cashier(models.Model):
     staff_id = models.CharField(max_length=200)
     first_name = models.CharField(max_length=200)
-    last_name = models.models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
     birthdate = models.DateField()
     email = models.EmailField(max_length=200)
     phone = models.CharField(max_length=200)
@@ -58,9 +58,10 @@ class Cashier(models.Model):
 class Patient(models.Model):
     patient_id = models.CharField(max_length=200) #generate based on number of patients previously registered
     first_name = models.CharField(max_length=200)
-    last_name = models.models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
     birthdate = models.DateField()
-    gender = models.CharField(max_length=200, CHOICES=gender_options)
+    gender_options = (('Male', 'male'), ('Female', 'female'), ('Other', 'other'))
+    gender = models.CharField(max_length=200, choices=gender_options)
     email = models.EmailField(max_length=200, null=True, blank=True)
     phone = models.CharField(max_length=200, null=True, blank=True)
     res_address = models.CharField(max_length=200)
@@ -70,12 +71,12 @@ class Patient(models.Model):
         return self.first_name + " " + self.last_name
     
 
-    #look into foreign key for registrar co
+    #look into foreign key for STAFF_ID COMING FROM DOCTOR_ID, NURSE_ID, ETC
 
 class Staff(models.Model):
     staff_id = models.CharField(max_length=200)
     first_name = models.CharField(max_length=200)
-    last_name = models.models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
     birthdate = models.DateField()
     email = models.EmailField(max_length=200)
     phone = models.CharField(max_length=200)
