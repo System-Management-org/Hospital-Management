@@ -16,7 +16,7 @@ function Admin() {
 
   return (
     <div>
-      {message}
+      <p>sjdnc kjnjkn</p>
     </div>
   );
 }
