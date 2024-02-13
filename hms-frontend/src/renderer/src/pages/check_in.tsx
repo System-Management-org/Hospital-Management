@@ -1,11 +1,12 @@
 import SideMenu from "../components/sidemenu";
+import TableComponent from "../components/tablecomponent";
 
 function CheckIn(){
 
     return(
         <>
             <SideMenu/>
-            <h1>check in</h1>
+            <TableComponent/>
         </>
     )
 }
