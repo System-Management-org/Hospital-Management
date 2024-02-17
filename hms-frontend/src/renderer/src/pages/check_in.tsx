@@ -3,11 +3,19 @@ import { useState, useEffect } from "react";
 import SearchComponent from "../components/search";
 import SideMenu from "../components/sidemenu";
 import TableComponent from "../components/tablecomponent";
+import { Link } from "react-router-dom";
 
 interface Patient {
     id: number;
-    name: string;
-    // Add other patient attributes as needed
+    patient_id: string;
+    first_name: string;
+    last_name: string;
+    birthdate: string;
+    gender: string;
+    email: string;
+    phone: string;
+    res_address: string;
+    registrar: string;
   }
 
 function CheckIn(){
@@ -24,14 +32,19 @@ function CheckIn(){
   
     useEffect(() => {
       // Initial load - fetch all patients
-      searchPatients('', '/api/patients');
+      searchPatients('', 'https://spmsug.pythonanywhere.com/patient/');
     }, []);
 
     return(
         <>
             <SideMenu/>
-            <SearchComponent onSearch={searchPatients} placeholder="Search Patients" apiUrl="/api/patients"/>
-            <TableComponent/>
+            <SearchComponent onSearch={searchPatients} placeholder="Search Patients" apiUrl="https://spmsug.pythonanywhere.com/patient/"/>
+            <TableComponent searchData={searchResults}/>
+            <Link to="/register">
+                 <button type="button">
+                        Register New Patients
+                </button>
+            </Link>
         </>
     )
 }

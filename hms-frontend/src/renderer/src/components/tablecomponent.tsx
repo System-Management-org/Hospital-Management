@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 
 interface Patient {
   id: number;
@@ -14,33 +13,28 @@ interface Patient {
   registrar: string;
 }
 
-const TableComponent: React.FC = () => {
-  const [data, setData] = useState<Patient[]>([]);
+interface TableComponentProps {
+  searchData: Patient[];
+}
+
+const TableComponent: React.FC<TableComponentProps> = ({ searchData }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [patientsPerPage] = useState(15);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get<Patient[]>('https://spmsug.pythonanywhere.com/patient/');
-        setData(response.data);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
   const indexOfLastPatient = currentPage * patientsPerPage;
   const indexOfFirstPatient = indexOfLastPatient - patientsPerPage;
-  const currentPatients = data.slice(indexOfFirstPatient, indexOfLastPatient);
+  const currentPatients = searchData.slice(indexOfFirstPatient, indexOfLastPatient);
 
   const handleCheckIn = (patientId: string) => {
     console.log(`Checking in patient with ID: ${patientId}`);
   };
 
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
+
+  useEffect(() => {
+    // Reset current page to 1 when new search results arrive
+    setCurrentPage(1);
+  }, [searchData]);
 
   return (
     <div>
@@ -67,7 +61,7 @@ const TableComponent: React.FC = () => {
       <div>
         {/* Pagination controls */}
         <ul>
-          {Array.from({ length: Math.ceil(data.length / patientsPerPage) }).map((_, index) => (
+          {Array.from({ length: Math.ceil(searchData.length / patientsPerPage) }).map((_, index) => (
             <li key={index}>
               <button onClick={() => paginate(index + 1)}>
                 {index + 1}
