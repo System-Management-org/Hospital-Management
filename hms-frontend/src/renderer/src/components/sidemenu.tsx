@@ -1,75 +1,30 @@
-import React, { useState } from 'react';
-import {
-  AppstoreOutlined,
-  ContainerOutlined,
-  DesktopOutlined,
-  MailOutlined,
-  MenuFoldOutlined,
-  MenuUnfoldOutlined,
-  PieChartOutlined,
-} from '@ant-design/icons';
-import type { MenuProps } from 'antd';
-import { Button, Menu } from 'antd';
-
-type MenuItem = Required<MenuProps>['items'][number];
-
-function getItem(
-  label: React.ReactNode,
-  key: React.Key,
-  icon?: React.ReactNode,
-  children?: MenuItem[],
-  type?: 'group',
-): MenuItem {
-  return {
-    key,
-    icon,
-    children,
-    label,
-    type,
-  } as MenuItem;
-}
-
-const items: MenuItem[] = [
-  getItem('Option 1', '1', <PieChartOutlined />),
-  getItem('Option 2', '2', <DesktopOutlined />),
-  getItem('Option 3', '3', <ContainerOutlined />),
-
-  getItem('Navigation One', 'sub1', <MailOutlined />, [
-    getItem('Option 5', '5'),
-    getItem('Option 6', '6'),
-    getItem('Option 7', '7'),
-    getItem('Option 8', '8'),
-  ]),
-
-  getItem('Navigation Two', 'sub2', <AppstoreOutlined />, [
-    getItem('Option 9', '9'),
-    getItem('Option 10', '10'),
-
-    getItem('Submenu', 'sub3', null, [getItem('Option 11', '11'), getItem('Option 12', '12')]),
-  ]),
-];
+import React from 'react';
+import { Sidebar, Menu, MenuItem } from 'react-pro-sidebar';
+import { Link } from 'react-router-dom';
 
 const SideMenu: React.FC = () => {
-  const [collapsed, setCollapsed] = useState(false);
-
-  const toggleCollapsed = () => {
-    setCollapsed(!collapsed);
-  };
+  const [toggled, setToggled] = React.useState(false);
 
   return (
-    
-    <div style={{ width: 256 }}>
-      <Button type="primary" onClick={toggleCollapsed} style={{ marginBottom: 16 }}>
-        {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-      </Button>
-      <Menu
-        defaultSelectedKeys={['1']}
-        defaultOpenKeys={['sub1']}
-        mode="inline"
-        theme="dark"
-        inlineCollapsed={collapsed}
-        items={items}
-      />
+    <div style={{ display: 'flex', height: '100%', minHeight: '400px' }}>
+      <Sidebar onBackdropClick={() => setToggled(false)} toggled={toggled} breakPoint="always">
+        <Menu closeOnClick>
+          <MenuItem component={<Link to="/dash" />}>Dashboard</MenuItem>
+          <MenuItem component={<Link to="/checkin"/>}>Check In</MenuItem>
+          <MenuItem component={<Link to="/register"/>}>Register Patients</MenuItem>
+          <MenuItem component={<Link to="/apt"/>}>Appointments</MenuItem>
+        </Menu>
+      </Sidebar>
+      <main style={{ display: 'flex', padding: 10 }}>
+        <div>
+          <button
+            className={`sb-button place-content-start absolute ${toggled ? 'left-64' : 'left-10'} top-10`}
+            onClick={() => setToggled(!toggled)}
+          >
+            Menu
+          </button>
+        </div>
+      </main>
     </div>
   );
 };

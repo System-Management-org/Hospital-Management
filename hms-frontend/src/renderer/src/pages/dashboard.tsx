@@ -1,15 +1,16 @@
 import SideMenu from "../components/sidemenu";
 
-function Frontdesk(){
+function Dashboard(){
 
     
     return(
         <>
-            <SideMenu/> 
+            <SideMenu/>
+            <h1>nsjnkcd</h1>
         </>
         )
     }
 
 
 
-export default Frontdesk;
+export default Dashboard;
