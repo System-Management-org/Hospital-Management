@@ -28,21 +28,21 @@ function Registration(){
       });
     
       useEffect(() => {
-        const fetchCurrentUser = async () => {
-          try {
-            // Fetch user information from your authentication endpoint
-            const response = await axios.get("https://your-auth-api.com/user");
-            const currentUser = response.data;
-            setFormData((prevData) => ({
-              ...prevData,
-              registrar: currentUser.username || "", // Set the registrar field
-            }));
-          } catch (error) {
-            console.error("Error fetching current user:", error);
-          }
-        };
+        // const fetchCurrentUser = async () => {
+        //   try {
+        //     // Fetch user information from your authentication endpoint
+        //     const response = await axios.get("https://your-auth-api.com/user");
+        //     const currentUser = response.data;
+        //     setFormData((prevData) => ({
+        //       ...prevData,
+        //       registrar: currentUser.username || "", // Set the registrar field
+        //     }));
+        //   } catch (error) {
+        //     console.error("Error fetching current user:", error);
+        //   }
+        // };
     
-        fetchCurrentUser();
+        // fetchCurrentUser();
       }, []); // Run once when the component mounts
     
       const handleInputChange = (
@@ -116,7 +116,7 @@ function Registration(){
           <label>
             Birthdate:
             <input
-              type="text"
+              type="date"
               name="birthdate"
               value={formData.birthdate}
               onChange={handleInputChange}
