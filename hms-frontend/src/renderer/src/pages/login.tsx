@@ -12,8 +12,9 @@ function Login(){
             username:username,
             password:password
         };
-        
+
         const {data} = await axios.post('https://spmsug.pythonanywhere.com/token/', user); 
+      
         localStorage.clear();
         localStorage.setItem('access_token', data.access);
         localStorage.setItem('refresh_token', data.refresh);
