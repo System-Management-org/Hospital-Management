@@ -6,6 +6,11 @@ function Login(){
     const[username, setusername] = useState('');
     const[password, setpassword] = useState('');
 
+
+    // const handleInputChange = (e) => {
+    //   setusername(e.target.value);
+    // };
+
     const submit = async (e:any) => {
         e.preventDefault();
         const user = {
@@ -20,6 +25,7 @@ function Login(){
         localStorage.setItem('refresh_token', data.refresh);
 
         axios.defaults.headers.common['Authorization'] = `Bearer ${data['access']}`;
+        localStorage.setItem('username', username);
         routing(username);
         
     }
