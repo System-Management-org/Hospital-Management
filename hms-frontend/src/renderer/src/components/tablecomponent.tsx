@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 
 interface Patient {
@@ -16,6 +17,7 @@ interface Patient {
 interface TableComponentProps {
   searchData: Patient[];
 }
+// ... (imports and interfaces)
 
 const TableComponent: React.FC<TableComponentProps> = ({ searchData }) => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -25,8 +27,20 @@ const TableComponent: React.FC<TableComponentProps> = ({ searchData }) => {
   const indexOfFirstPatient = indexOfLastPatient - patientsPerPage;
   const currentPatients = searchData.slice(indexOfFirstPatient, indexOfLastPatient);
 
-  const handleCheckIn = (patientId: string) => {
-    console.log(`Checking in patient with ID: ${patientId}`);
+  const handleCheckIn = async (patient: Patient) => {
+    try {
+      const response = await axios.post('https://spmsug.pythonanywhere.com/checkedin/', {
+        patient_id: patient.patient_id,
+        name: patient.first_name + ' ' + patient.last_name,
+        checkin_time: new Date().toISOString(),
+        checkout_time: new Date(), 
+        staff:  localStorage.getItem('username') 
+      });
+      console.log("Patient checked in successfully:", response.data);
+      // Handle any additional logic after successful check-in
+    } catch (error) {
+      console.error("Error checking in patient:", error);
+    }
   };
 
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
@@ -50,7 +64,7 @@ const TableComponent: React.FC<TableComponentProps> = ({ searchData }) => {
               <td>{patient.birthdate}</td>
               <td>{patient.phone}</td>
               <td>
-                <button onClick={() => handleCheckIn(patient.patient_id)}>
+                <button onClick={() => handleCheckIn(patient)}>
                   Check In
                 </button>
               </td>
