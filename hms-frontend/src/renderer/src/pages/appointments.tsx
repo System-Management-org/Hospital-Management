@@ -10,8 +10,16 @@ interface Patient {
     staff: any;
 }
 
+const menuItems = [
+    { label: 'Dashboard', to: '/dash' },
+    { label: 'Check In', to: '/checkin' },
+    { label: 'Register Patients', to: '/register'}, 
+    {label: 'Appointments', to: '/apt' },
+  ];
+
+
 function Appointments() {
-    const [registrar, setregistrar] = useState('');
+    const [, setregistrar] = useState('');
     const [formData, setFormData] = useState<Patient>({
         patient_id: "",
         first_name: "",
@@ -60,7 +68,7 @@ function Appointments() {
 
     return (
         <>
-            <SideMenu />
+            <SideMenu items={menuItems}/>
             <form onSubmit={handleSubmit}>
 
                 <label>

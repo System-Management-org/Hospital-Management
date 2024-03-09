@@ -18,6 +18,13 @@ interface Patient {
     registrar: string;
   }
 
+  const menuItems = [
+    { label: 'Dashboard', to: '/dash' },
+    { label: 'Check In', to: '/checkin' },
+    { label: 'Register Patients', to: '/register'}, 
+    {label: 'Appointments', to: '/apt' },
+  ];
+
 function CheckIn(){
     const [searchResults, setSearchResults] = useState<Patient[]>([]);
 
@@ -37,7 +44,7 @@ function CheckIn(){
 
     return(
         <>
-            <SideMenu/>
+            <SideMenu items={menuItems}/>
             <SearchComponent onSearch={searchPatients} placeholder="Search Patients" apiUrl="https://spmsug.pythonanywhere.com/patient/"/>
             <TableComponent searchData={searchResults}/>
             <Link to="/register">

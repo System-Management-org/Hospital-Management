@@ -14,6 +14,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import CheckIn from './pages/check_in'
 import Registeration from './pages/Registration'
 import Appointments from './pages/appointments'
+import CreateUser from './pages/createusers'
 
 function App() {
 
@@ -32,6 +33,8 @@ function App() {
       <Route path='checkin' element={<CheckIn/>}/>
       <Route path='register' element={<Registeration/>}/>
       <Route path='apt' element={<Appointments/>}/>
+      <Route path='addstaff' element={<CreateUser/>}/>
+      
     </Routes>
     </BrowserRouter>
 
