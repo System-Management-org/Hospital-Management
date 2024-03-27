@@ -1,7 +1,7 @@
 // import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useState } from 'react';
-import SideMenu from '../components/sidemenu';
+import SideMenu from '../../components/sidemenu';
 
 interface User {
   username: string;

@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import SideMenu from "../components/sidemenu";
+import SideMenu from "../../components/sidemenu";
 
 interface Patient {
     patient_id: string;
@@ -13,6 +13,14 @@ interface Patient {
     res_address: string;
     registrar: any;
   }
+
+  const menuItems = [
+    { label: 'Dashboard', to: '/dash' },
+    { label: 'Check In', to: '/checkin' },
+    { label: 'Register Patients', to: '/register'}, 
+    {label: 'Appointments', to: '/apt' },
+  ];
+
 
 function Registration(){
   const [registrar, setregistrar] = useState('');
@@ -71,7 +79,7 @@ function Registration(){
     
       return (
         <>
-        <SideMenu/>
+        <SideMenu items={menuItems}/> 
         <form onSubmit={handleSubmit}>
           <label>
             First Name:

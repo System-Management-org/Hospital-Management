@@ -2,7 +2,7 @@
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 import './App.css'
-import Dashboard from './pages/dashboard'
+import Dashboard from './pages/sections/dashboard'
 import Frontdesk from './pages/FrontDesk'
 import Admin from './pages/admin'
 import Cashier from './pages/cashier'
@@ -11,10 +11,10 @@ import Login from './pages/login'
 import Nurse from './pages/nurse'
 import Welcomepage from './pages/welcome'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import CheckIn from './pages/check_in'
-import Registeration from './pages/Registration'
-import Appointments from './pages/appointments'
-import CreateUser from './pages/createusers'
+import CheckIn from './pages/sections/check_in'
+import Registeration from './pages/sections/Registration'
+import Appointments from './pages/sections/appointments'
+import CreateUser from './pages/sections/createusers'
 
 function App() {
 

@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import SearchComponent from "../components/search";
-import SideMenu from "../components/sidemenu";
-import TableComponent from "../components/tablecomponent";
+import SearchComponent from "../../components/search";
+import SideMenu from "../../components/sidemenu";
+import TableComponent from "../../components/tablecomponent";
 import { Link } from "react-router-dom";
 
 interface Patient {

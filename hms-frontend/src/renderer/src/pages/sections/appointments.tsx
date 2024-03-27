@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import SideMenu from "../components/sidemenu";
+import SideMenu from "../../components/sidemenu";
 import axios from "axios";
 
 interface Patient {

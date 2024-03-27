@@ -6,8 +6,9 @@ function Admin() {
   const menuItems = [
     { label: 'Dashboard', to: '/dash' },
     { label: 'Add Staff', to: '/addstaff' },
-    // { label: 'Register Patients', to: '/register'}, 
-    // {label: 'Appointments', to: '/apt' },
+    { label: 'Check In', to: '/checkin' },
+    { label: 'Register Patients', to: '/register'}, 
+    {label: 'Appointments', to: '/apt' },
   ];
 
 
