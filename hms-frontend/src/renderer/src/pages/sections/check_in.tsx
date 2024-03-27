@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import SearchComponent from "../components/search";
-import SideMenu from "../components/sidemenu";
-import TableComponent from "../components/tablecomponent";
+import SearchComponent from "../../components/search";
+import SideMenu from "../../components/sidemenu";
+import TableComponent from "../../components/tablecomponent";
 import { Link } from "react-router-dom";
 
 interface Patient {
@@ -17,6 +17,13 @@ interface Patient {
     res_address: string;
     registrar: string;
   }
+
+  const menuItems = [
+    { label: 'Dashboard', to: '/dash' },
+    { label: 'Check In', to: '/checkin' },
+    { label: 'Register Patients', to: '/register'}, 
+    {label: 'Appointments', to: '/apt' },
+  ];
 
 function CheckIn(){
     const [searchResults, setSearchResults] = useState<Patient[]>([]);
@@ -37,7 +44,7 @@ function CheckIn(){
 
     return(
         <>
-            <SideMenu/>
+            <SideMenu items={menuItems}/>
             <SearchComponent onSearch={searchPatients} placeholder="Search Patients" apiUrl="https://spmsug.pythonanywhere.com/patient/"/>
             <TableComponent searchData={searchResults}/>
             <Link to="/register">

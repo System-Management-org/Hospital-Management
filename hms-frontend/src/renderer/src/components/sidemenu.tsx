@@ -2,17 +2,22 @@ import React from 'react';
 import { Sidebar, Menu, MenuItem } from 'react-pro-sidebar';
 import { Link } from 'react-router-dom';
 
-const SideMenu: React.FC = () => {
+interface SideMenuProps {
+  items: { label: string; to: string }[];
+}
+
+const SideMenu: React.FC<SideMenuProps> = ({ items }) => {
   const [toggled, setToggled] = React.useState(false);
 
   return (
     <div style={{ display: 'flex', height: '100%', minHeight: '400px' }}>
       <Sidebar onBackdropClick={() => setToggled(false)} toggled={toggled} breakPoint="always">
         <Menu closeOnClick>
-          <MenuItem component={<Link to="/dash" />}>Dashboard</MenuItem>
-          <MenuItem component={<Link to="/checkin"/>}>Check In</MenuItem>
-          <MenuItem component={<Link to="/register"/>}>Register Patients</MenuItem>
-          <MenuItem component={<Link to="/apt"/>}>Appointments</MenuItem>
+          {items.map((item, index) => (
+            <MenuItem key={index} component={<Link to={item.to} />}>
+              {item.label}
+            </MenuItem>
+          ))}
         </Menu>
       </Sidebar>
       <main style={{ display: 'flex', padding: 10 }}>

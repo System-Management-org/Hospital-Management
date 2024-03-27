@@ -1,23 +1,21 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
+// import { useState, useEffect } from 'react';
+// import axios from 'axios';
+import SideMenu from '../components/sidemenu';
 
 function Admin() {
-  const [message, setMessage] = useState('');
+  const menuItems = [
+    { label: 'Dashboard', to: '/dash' },
+    { label: 'Add Staff', to: '/addstaff' },
+    { label: 'Check In', to: '/checkin' },
+    { label: 'Register Patients', to: '/register'}, 
+    {label: 'Appointments', to: '/apt' },
+  ];
 
-  useEffect(() => {
-    axios.get('http://localhost:8000/admin/')
-      .then(response => {
-        setMessage(response.data.message);
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  }, []);
 
   return (
-    <div>
-      <p>sjdnc kjnjkn</p>
-    </div>
+    <>
+    <SideMenu items={menuItems}/>
+    </>
   );
 }
 

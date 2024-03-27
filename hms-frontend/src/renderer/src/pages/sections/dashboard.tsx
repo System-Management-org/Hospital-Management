@@ -1,4 +1,4 @@
-import SideMenu from "../components/sidemenu";
+import SideMenu from "../../components/sidemenu";
 
 const menuItems = [
     { label: 'Dashboard', to: '/dash' },
@@ -6,18 +6,17 @@ const menuItems = [
     { label: 'Register Patients', to: '/register'}, 
     {label: 'Appointments', to: '/apt' },
   ];
-
-
-function Frontdesk(){
+function Dashboard(){
 
     
     return(
         <>
             <SideMenu items={menuItems}/> 
+            <h1>nsjnkcd</h1>
         </>
         )
     }
 
 
 
-export default Frontdesk;
+export default Dashboard;
